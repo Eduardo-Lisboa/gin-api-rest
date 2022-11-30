@@ -9,8 +9,8 @@ import (
 func Products(c *gin.Context) {
 	var products []models.Product
 	database.DB.Find(&products)
+	c.JSON(200, gin.H{"products": products})
 
-	c.JSON(200, products)
 }
 
 func SearchForProduct(c *gin.Context) {
@@ -21,7 +21,12 @@ func SearchForProduct(c *gin.Context) {
 		c.JSON(404, gin.H{"message": "Product not found"})
 		return
 	}
-	c.JSON(200, product)
+	c.JSON(200, gin.H{
+
+		"code:":  product.Code,
+		"name:":  product.Name,
+		"price:": product.Price,
+	})
 
 }
 
@@ -31,8 +36,13 @@ func CreatProduct(c *gin.Context) {
 		c.JSON(400, gin.H{"error": err.Error()})
 		return
 	}
+	if err := models.Validate(&product); err != nil {
+		c.JSON(400, gin.H{"error": err.Error()})
+		return
+	}
 	database.DB.Create(&product)
-	c.JSON(200, gin.H{"message": "Product created is successful"})
+	c.JSON(200, gin.H{"message": "Product created is successful",
+		"product": product})
 
 }
 
@@ -57,6 +67,10 @@ func UpdateProduct(c *gin.Context) {
 		return
 	}
 	if err := c.ShouldBindJSON(&product); err != nil {
+		c.JSON(400, gin.H{"error": err.Error()})
+		return
+	}
+	if err := models.Validate(&product); err != nil {
 		c.JSON(400, gin.H{"error": err.Error()})
 		return
 	}

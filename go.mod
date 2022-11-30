@@ -4,7 +4,10 @@ go 1.19
 
 require gorm.io/driver/postgres v1.4.5
 
-require github.com/gin-contrib/cors v1.4.0 // indirect
+require (
+	github.com/gin-contrib/cors v1.4.0 // indirect
+	gopkg.in/validator.v2 v2.0.1 // indirect
+)
 
 require (
 	github.com/gin-contrib/sse v0.1.0 // indirect

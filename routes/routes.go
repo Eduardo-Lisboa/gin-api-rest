@@ -13,6 +13,7 @@ func HandleRequests() {
 	r.POST("/produtos", controllers.CreatProduct)
 	r.DELETE("/produtos/:id", controllers.DeleteProduct)
 	r.PATCH("/produtos/:id", controllers.UpdateProduct)
+
 	r.Use(cors.Default())
 	r.Run(":8080")
 }

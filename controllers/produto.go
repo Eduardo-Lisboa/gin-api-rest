@@ -77,3 +77,5 @@ func UpdateProduct(c *gin.Context) {
 	database.DB.Save(&product)
 	c.JSON(200, gin.H{"message": "Product updated is successfully"})
 }
+
+

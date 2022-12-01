@@ -81,3 +81,9 @@ func UpdateProduct(c *gin.Context) {
 	database.DB.Save(&product)
 	c.JSON(200, gin.H{"message": "Product updated is successfully"})
 }
+
+func PageIndex(c *gin.Context) {
+	c.HTML(200, "index.html", gin.H{
+		"message": "Boas vindas",
+	})
+}

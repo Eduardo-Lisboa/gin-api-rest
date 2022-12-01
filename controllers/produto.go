@@ -41,8 +41,12 @@ func CreatProduct(c *gin.Context) {
 		return
 	}
 	database.DB.Create(&product)
-	c.JSON(200, gin.H{"message": "Product created is successful",
-		"product": product})
+	c.JSON(200, gin.H{
+		"ID":    product.ID,
+		"code":  product.Code,
+		"name":  product.Name,
+		"price": product.Price,
+	})
 
 }
 
@@ -77,5 +81,3 @@ func UpdateProduct(c *gin.Context) {
 	database.DB.Save(&product)
 	c.JSON(200, gin.H{"message": "Product updated is successfully"})
 }
-
-

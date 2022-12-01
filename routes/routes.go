@@ -8,6 +8,7 @@ import (
 
 func HandleRequests() {
 	r := gin.Default()
+	r.GET("/")
 	r.GET("/produtos", controllers.Products)
 	r.GET("/produtos/:id", controllers.SearchForProduct)
 	r.POST("/produtos", controllers.CreatProduct)

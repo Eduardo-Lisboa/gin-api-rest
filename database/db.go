@@ -15,7 +15,7 @@ var (
 )
 
 func ConectDatabase() {
-	dns := config.DbHost + "" + config.DbUser + "" + config.DbPassword + "" + config.DBName + "" + config.PortDatabase + "" + config.SSLMode
+	dns := config.StringConectDatabase
 	DB, err = gorm.Open(postgres.Open(dns))
 	if err != nil {
 		log.Panic("Erro ao conectar com banco de dados")

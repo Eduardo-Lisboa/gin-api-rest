@@ -30,7 +30,7 @@ func SearchForProduct(c *gin.Context) {
 
 }
 
-func CreatProduct(c *gin.Context) {
+func CreateProduct(c *gin.Context) {
 	var product models.Product
 	if err := c.ShouldBindJSON(&product); err != nil {
 		c.JSON(400, gin.H{"error": err.Error()})

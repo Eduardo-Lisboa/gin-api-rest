@@ -2,12 +2,14 @@ package main
 
 import (
 	"github.com/Eduardo-Lisboa/api-go-gin/database"
-	"github.com/Eduardo-Lisboa/api-go-gin/routes"
+	"github.com/Eduardo-Lisboa/api-go-gin/server"
 )
 
 func main() {
+
 	database.ConectDatabase()
 
-	routes.HandleRequests()
+	server := server.NewServer()
+	server.Start()
 
 }

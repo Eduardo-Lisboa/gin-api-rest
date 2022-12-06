@@ -19,6 +19,13 @@ func ConfigureRoutes(router *gin.Engine) *gin.Engine {
 			products.PATCH("/:id", controllers.UpdateProduct)
 
 		}
+		users := main.Group(config.Users)
+		{
+			users.GET("/", controllers.GetUsers)
+			users.GET("/:id", controllers.SearchForUser)
+			users.POST("/", controllers.CreateUser)
+			users.GET("/login", controllers.UserLogin)
+		}
 
 	}
 	return router

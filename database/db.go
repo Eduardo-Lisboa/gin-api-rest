@@ -21,4 +21,5 @@ func ConectDatabase() {
 		log.Panic("Erro ao conectar com banco de dados")
 	}
 	DB.AutoMigrate(&models.Product{})
+	DB.AutoMigrate(&models.User{})
 }

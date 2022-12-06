@@ -25,8 +25,7 @@ func (s *Server) Start() {
 
 	router := routes.ConfigureRoutes(s.server)
 	router.Use(cors.Default())
-	log.Print("Server is running on port: ", s.port)
-
-	log.Fatal(router.Run(":" + s.port))
+	router.Run(":" + s.port)
+	log.Println("Server running on port: ", s.port)
 
 }

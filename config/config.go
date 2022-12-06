@@ -3,7 +3,7 @@ package config
 //config server
 const (
 	//Port is the port that the server will run on
-	PortServer = "8080"
+	PortServer = "8000"
 )
 
 //config database
@@ -16,5 +16,5 @@ const (
 	//api name
 	ApiName = "api/v1"
 	//products
-	Products = "products"
+	Products = "produtos"
 )

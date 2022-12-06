@@ -10,6 +10,7 @@ func main() {
 	database.ConectDatabase()
 
 	server := server.NewServer()
+
 	server.Start()
 
 }

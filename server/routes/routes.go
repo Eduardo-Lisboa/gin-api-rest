@@ -17,6 +17,7 @@ func ConfigureRoutes(router *gin.Engine) *gin.Engine {
 			products.POST("/", controllers.CreateProduct)
 			products.DELETE("/:id", controllers.DeleteProduct)
 			products.PATCH("/:id", controllers.UpdateProduct)
+
 		}
 
 	}
